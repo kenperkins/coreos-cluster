@@ -13,6 +13,10 @@
     "pkgcloud"
   ],
   "author": "Ken Perkins <ken.perkins@rackspace.com>",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/kenperkins/coreos-cluster.git"
+  },
   "license": "MIT",
   "dependencies": {
     "async": "~0.9.0",
