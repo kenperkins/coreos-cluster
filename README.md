@@ -11,7 +11,12 @@ cluster.createCluster({
   size: 10,
   type: 'performance',
   release: 'beta',
-  keyname: 'my-ssh-keyname'
+  keyname: 'my-ssh-keyname',
+  credentials: {
+    username: 'your-user-name',
+    apiKey: 'some-key-here',
+    region: 'iad'
+  }
 }, function(err, results) {
   // will callback with a functional cluster
 });
@@ -24,17 +29,12 @@ cluster.createCluster({
 - `release` - Optional. coreos release: `stable` (default), `beta` or `alpha`
 - `keyname` - Optional. Rackspace Cloud Servers SSH keyname. If not provided, will create a new ssh key and include in the results
 - `flavor` - Optional. The Rackspace Cloud Servers flavor. Defaults to `performance1-1` flavor for `performance` and `onmetal-compute1` for `onMetal`
-
-### Rackspace Cloud Credentials
-`coreos-cluster` is built on `pkgcloud@1.0.0` and will now make use of environment variables for the Rackspace credentials:
-
-- `PKGCLOUD_RACKSPACE_USERNAME` - Your rackspace username
-- `PKGCLOUD_RACKSPACE_APIKEY` - API Key for your account
-- `PKGCLOUD_RACKSPACE_PASSWORD` - Password may be used in lieu of API key
-- `PKGCLOUD_RACKSPACE_REGION` - Region for the coreos cluster
-- `PKGCLOUD_RACKSPACE_AUTH_URL` - Optional. Use an alternate authentication endpoint. See the [Rackspace Endpoints](http://docs.rackspace.com/servers/api/v2/cn-devguide/content/auth_endpoints.html) for more endpoint information.
-- `PKGCLOUD_RACKSPACE_USE_INTERNAL` - Optional. Use the local service interface if calling from a Rackspace cloud server
-
+- `credentials` - Required. The credentials for the create cluster call
+  - `username` - Username for your rackspace account
+  - `apiKey` - Api key for your rackspace account
+  - `region` - Region to create the cluster in
+  - `useInternal` - Optional, use local service net interface if calling from Rackspace Cloud machines
+  
 ### Installation
 
 ```
