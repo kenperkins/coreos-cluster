@@ -6,7 +6,7 @@ var Cluster = require('./lib/cluster').Cluster;
  * @param {object}      options               options for your new cluster
  * @param {string}      [options.type]        'onMetal' or 'performance', performance is default
  * @param {string}      [options.flavor]      cloud servers flavor, defaults to smallest for type
- * @param {string}      [options.version]     coreos version, 'alpha', 'beta', 'stable', stable is default
+ * @param {string}      [options.release]     coreos release, 'alpha', 'beta', 'stable', stable is default
  * @param {number}      [options.size]        number of nodes, defaults to 3
  * @param {string}      [options.keyname]     ssh keyname; if not provided will create a new key 'coreos-cluster'
  *
@@ -47,3 +47,5 @@ exports.createCluster = function(options, callback) {
     });
   });
 };
+
+exports.Cluster = Cluster;

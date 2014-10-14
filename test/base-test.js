@@ -8,7 +8,7 @@ describe('Tests for creating a core-os cluster', function() {
 
       cluster.size.should.equal(3);
       cluster.type.should.equal('performance');
-      cluster.version.should.equal('stable');
+      cluster.release.should.equal('stable');
       should.not.exist(cluster.keyname);
     });
   });
@@ -99,35 +99,35 @@ describe('Tests for creating a core-os cluster', function() {
     });
   });
 
-  describe('cluster.version', function() {
-    it('should not allow a custom cluster version', function() {
+  describe('cluster.release', function() {
+    it('should not allow a custom cluster release', function() {
       (function() {
-        new Cluster({ version: 'foo' });
+        new Cluster({ release: 'foo' });
       }).should.throw();
     });
 
-    it('should allow a null version', function() {
-      var cluster = new Cluster({ version: null });
+    it('should allow a null release', function() {
+      var cluster = new Cluster({ release: null });
 
-      cluster.version.should.equal('stable');
+      cluster.release.should.equal('stable');
     });
 
-    it('should allow a stable version', function() {
-      var cluster = new Cluster({ version: 'stable' });
+    it('should allow a stable release', function() {
+      var cluster = new Cluster({ release: 'stable' });
 
-      cluster.version.should.equal('stable');
+      cluster.release.should.equal('stable');
     });
 
-    it('should allow a beta version', function() {
-      var cluster = new Cluster({ version: 'beta' });
+    it('should allow a beta release', function() {
+      var cluster = new Cluster({ release: 'beta' });
 
-      cluster.version.should.equal('beta');
+      cluster.release.should.equal('beta');
     });
 
-    it('should allow a alpha version', function() {
-      var cluster = new Cluster({ version: 'alpha' });
+    it('should allow a alpha release', function() {
+      var cluster = new Cluster({ release: 'alpha' });
 
-      cluster.version.should.equal('alpha');
+      cluster.release.should.equal('alpha');
     });
   });
 });

@@ -10,7 +10,7 @@ var cluster = require('coreos-cluster');
 cluster.createCluster({
   size: 10,
   type: 'performance',
-  version: 'beta',
+  release: 'beta',
   keyname: 'my-ssh-keyname'
 }, function(err, results) {
   // will callback with a functional cluster
@@ -21,7 +21,7 @@ cluster.createCluster({
 
 - `size` - Optional. Size of the cluster in nodes, minimum/default of 3
 - `type` - Optional. `performance` or `onMetal` servers, defaults to `performance` vms
-- `version` - Optional. coreos version: `stable` (default), `beta` or `alpha`
+- `release` - Optional. coreos release: `stable` (default), `beta` or `alpha`
 - `keyname` - Optional. Rackspace Cloud Servers SSH keyname. If not provided, will create a new ssh key and include in the results
 - `flavor` - Optional. The Rackspace Cloud Servers flavor. Defaults to `performance1-1` flavor for `performance` and `onmetal-compute1` for `onMetal`
 
