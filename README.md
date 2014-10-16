@@ -34,7 +34,7 @@ cluster.createCluster({
   - `apiKey` - Api key for your rackspace account
   - `region` - Region to create the cluster in
   - `useInternal` - Optional, use local service net interface if calling from Rackspace Cloud machines
-  
+
 ### Installation
 
 ```
