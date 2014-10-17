@@ -6,4 +6,4 @@ After=rackspace-monitoring-agent-token.service
 Requires=rackspace-monitoring-agent-token.service
 Type=oneshot
 RemainAfterExit=yes
-ExecStart=/bin/bash -c '/usr/bin/xenstore read name | /usr/bin/sed "s:instance-:monitoring_id :" >> /opt/rackspace-monitoring-agent/rackspace-monitoring-agent.cfg'
+ExecStart=/bin/bash -c "echo monitoring_id `cat /media/configdrive/openstack/latest/meta_data.json | awk -F'uuid' '{print $2}' | awk -F\\\" '{print $3}'` >> /opt/rackspace-monitoring-agent/rackspace-monitoring-agent.cfg"
