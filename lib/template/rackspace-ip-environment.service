@@ -1,0 +1,10 @@
+[Unit]
+Description=Configure /etc/environment variables for Rackspace networks on etcd
+After=network-online.target
+Requires=ntpd.service network-online.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/root/bin/rackspace-ips.sh
+ExecStart=/root/bin/fixup-etc.sh

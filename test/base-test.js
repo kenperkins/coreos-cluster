@@ -5,71 +5,10 @@ describe('Tests for creating a core-os cluster', function() {
   describe('default options', function() {
     it('should work with no options', function() {
       var cluster = new Cluster();
-
-      cluster.size.should.equal(3);
+ 
       cluster.type.should.equal('performance');
       cluster.release.should.equal('stable');
       should.not.exist(cluster.keyname);
-    });
-  });
-
-  describe('cluster.size', function() {
-    it('should not allow a cluster smaller than 3', function() {
-      (function() {
-        new Cluster({ size: 2 })
-      }).should.throw();
-    });
-
-    it('should not allow a 0 sized cluster', function() {
-      (function() {
-        new Cluster({ size: 0 })
-      }).should.throw();
-    });
-
-    it('should not allow a negative sized cluster', function() {
-      (function() {
-        new Cluster({ size: -1 })
-      }).should.throw();
-    });
-
-    it('should not allow a string value for cluster size', function() {
-      (function() {
-        new Cluster({ size: 'hello' })
-      }).should.throw();
-    });
-
-    it('should move floats to ints', function() {
-      var cluster;
-
-      (function() {
-        cluster = new Cluster({ size: 3.3 })
-      }).should.not.throw();
-
-      cluster.size.should.equal(3);
-    });
-
-    it('should not allow a object value for cluster size', function() {
-      (function() {
-        new Cluster({ size: {} })
-      }).should.throw();
-    });
-
-    it('should not allow an array value for cluster size', function() {
-      (function() {
-        new Cluster({ size: [] })
-      }).should.throw();
-    });
-
-    it('should not allow an empty value for cluster size', function() {
-      (function() {
-        new Cluster({ size: null })
-      }).should.throw();
-    });
-
-    it('should allow a cluster size greater than 3', function() {
-      var cluster = new Cluster({ size: 5 });
-
-      cluster.size.should.equal(5);
     });
   });
 

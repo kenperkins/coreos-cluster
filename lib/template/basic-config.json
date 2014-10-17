@@ -1,0 +1,41 @@
+{
+  "coreos": {
+    "etcd": {
+      "discovery": null
+    },
+    "fleet": {
+      "public-ip": "$public_ipv4",
+      "metadata": null
+    },
+    "update": {
+      "reboot-strategy": "etcd-lock"
+    },
+    "units": [
+      {
+        "name": "etcd.service",
+        "command": "start"
+      },
+      {
+        "name": "fleet.service",
+        "command": "start"
+      },
+      {
+        "name": "rackspace-ip-environment.service",
+        "command": "start",
+        "content": null
+      }
+    ]
+  },
+  "write_files": [
+    {
+      "path": "/root/bin/fixup-etc.sh",
+      "permissions": "0755",
+      "content": null
+    },
+    {
+      "path": "/root/bin/rackspace-ips.sh",
+      "permissions": "0755",
+      "content": null
+    }
+  ]
+}

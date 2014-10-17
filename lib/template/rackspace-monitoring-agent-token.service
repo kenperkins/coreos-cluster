@@ -1,0 +1,8 @@
+[Unit]
+Description=Rackspace Monitoring Agent Token Creation
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/bin/mkdir -p /opt/rackspace-monitoring-agent/logs
+ExecStart=/bin/bash -c 'echo "monitoring_token RACKSPACE_MONITORING_TOKEN"

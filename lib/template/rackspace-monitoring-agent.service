@@ -1,0 +1,15 @@
+[Unit]
+Description=Rackspace Monitoring Agent
+
+[Service]
+After=rackspace-monitoring-agent-token.service rackspace-monitoring-agent-id.service
+Requires=rackspace-monitoring-agent-token.service rackspace-monitoring-agent-id.service
+ExecStart=/usr/bin/docker run \
+   -v /proc:/proc \
+   -v /dev:/dev \
+   -v /dev/pts:/dev/pts \
+   -v /sys:/sys \
+   -v /opt/rackspace-monitoring-agent/rackspace-monitoring-agent.cfg:/etc/rackspace-monitoring-agent.cfg \
+   -v /opt/rackspace-monitoring-agent/logs:/var/log rackerlabs/maas-agent-docker
+Restart=always
+RestartSec=30s

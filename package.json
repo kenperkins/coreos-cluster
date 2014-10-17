@@ -21,9 +21,9 @@
   "dependencies": {
     "async": "~0.9.0",
     "lodash": "~2.4.1",
+    "js-yaml": "~3.2.2",
     "pkgcloud": "git://github.com/pkgcloud/pkgcloud.git",
-    "request": "~2.45.0",
-    "js-yaml": "~3.2.2"
+    "request": "~2.45.0"
   },
   "devDependencies": {
     "mocha": "~1.21.5",

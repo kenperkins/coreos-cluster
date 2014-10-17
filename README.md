@@ -8,7 +8,7 @@ Create a fully functional [CoreOs Cluster](https://coreos.com/using-coreos/) on 
 var cluster = require('coreos-cluster');
 
 cluster.createCluster({
-  size: 10,
+  numNodes: 10,
   type: 'performance',
   release: 'beta',
   keyname: 'my-ssh-keyname',
@@ -24,16 +24,41 @@ cluster.createCluster({
 
 ### Options
 
-- `size` - Optional. Size of the cluster in nodes, minimum/default of 3
+- `numNodes` - required. Number of nodes. Clusters must have at least 3 nodes
 - `type` - Optional. `performance` or `onMetal` servers, defaults to `performance` vms
 - `release` - Optional. coreos release: `stable` (default), `beta` or `alpha`
 - `keyname` - Optional. Rackspace Cloud Servers SSH keyname. If not provided, will create a new ssh key and include in the results
 - `flavor` - Optional. The Rackspace Cloud Servers flavor. Defaults to `performance1-1` flavor for `performance` and `onmetal-compute1` for `onMetal`
+- `privateNetwork` - Optional. Guid for a rackspace private network. Will configure etcd to use the private network.
+- `monitoringToken` - Optional. Will configure the nodes for Rackspace cloud monitoring.
+- `discoveryServiceUrl` - Optional. Url for an existing cluster's discovery service. Will add `numNodes` to current cluster instead of create a new cluster.
 - `credentials` - Required. The credentials for the create cluster call
   - `username` - Username for your rackspace account
   - `apiKey` - Api key for your rackspace account
   - `region` - Region to create the cluster in
   - `useInternal` - Optional, use local service net interface if calling from Rackspace Cloud machines
+
+### Advanced Usage Example
+```javascript
+var cluster = require('coreos-cluster');
+
+cluster.createCluster({
+  numNodes: 10,
+  type: 'performance',
+  release: 'beta',
+  keyname: 'my-ssh-keyname',
+  discoveryServiceUrl: 'https://discovery.etcd.io/some-guid-here',
+  privateNetwork: '4c371711-44ae-15ab-86af-45438fb96a15',
+  monitoringToken: 'your-monitoring-token',
+  credentials: {
+    username: 'your-user-name',
+    apiKey: 'some-key-here',
+    region: 'iad'
+  }
+}, function(err, results) {
+  // will callback with a details of the added nodes
+});
+```
 
 ### Installation
 

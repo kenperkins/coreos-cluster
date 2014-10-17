@@ -1,0 +1,20 @@
+[
+  {
+    "name": "rackspace-monitoring-agent-token.service",
+    "command": "start",
+    "runtime": "yes",
+    "content": null
+  },
+  {
+    "name": "rackspace-monitoring-agent-id.service",
+    "command": "start",
+    "runtime": "yes",
+    "content": null
+  },
+  {
+    "name": "rackspace-monitoring-agent.service",
+    "command": "start",
+    "runtime": "yes",
+    "content": null
+  }
+]

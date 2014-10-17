@@ -1,0 +1,9 @@
+[Unit]
+Description=Rackspace Monitoring Agent Id Creation
+
+[Service]
+After=rackspace-monitoring-agent-token.service
+Requires=rackspace-monitoring-agent-token.service
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/bin/bash -c '/usr/bin/xenstore read name | /usr/bin/sed "s:instance-:monitoring_id :" >> /opt/rackspace-monitoring-agent/rackspace-monitoring-agent.cfg'
