@@ -1,0 +1,9 @@
+[Unit]
+Description=Add mounts for lsi cards into /var/lib/docker
+Before=docker.service
+After=lsi-initial-setup.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/root/bin/add_raid_uuid_to_fstab.sh

@@ -1,0 +1,8 @@
+[Unit]
+Description=Format and raid LSI cards if not already done
+After=lsi-settings.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/root/bin/lsi_format.sh %m

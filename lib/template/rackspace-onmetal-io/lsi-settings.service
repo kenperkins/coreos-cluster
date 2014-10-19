@@ -1,0 +1,7 @@
+[Unit]
+Description=Configure performance settings for LSI cards
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/root/bin/lsi_settings.sh
