@@ -50,6 +50,10 @@ cluster.createCluster({
   discoveryServiceUrl: 'https://discovery.etcd.io/some-guid-here',
   privateNetwork: '4c371711-44ae-15ab-86af-45438fb96a15',
   monitoringToken: 'your-monitoring-token',
+  update: {
+      group: '0a809ab1-c01c-4a6b-8ac8-6b17cb9bae09',
+      server: 'https://customer.update.core-os.net/v1/update/'
+  },
   credentials: {
     username: 'your-user-name',
     apiKey: 'some-key-here',
