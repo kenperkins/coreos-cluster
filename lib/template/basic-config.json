@@ -36,6 +36,11 @@
       "path": "/root/bin/rackspace-ips.sh",
       "permissions": "0755",
       "content": null
+    },
+    {
+      "path": "/root/bin/format-ephemeral.sh",
+      "permissions": "0755",
+      "content": null
     }
   ]
 }

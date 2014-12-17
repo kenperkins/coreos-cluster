@@ -1,0 +1,9 @@
+[Unit]
+Description=Mount ephemeral to /var/lib/docker
+After=format-ephemeral.service
+Before=docker.service
+
+[Mount]
+What=/dev/xvde
+Where=/var/lib/docker
+Type=btrfs

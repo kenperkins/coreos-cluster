@@ -37,6 +37,14 @@ describe('Tests for creating a core-os cluster', function() {
       cluster.type.should.equal('onMetal');
     });
   });
+  
+  describe('cluster.ephemeral', function() {
+    it('should allow setting Docker disk drive', function() {
+      var cluster = new Cluster({ephemeral: true})
+      
+      cluster.ephemeral.should.equal(true);
+    })
+  })
 
   describe('cluster.release', function() {
     it('should not allow a custom cluster release', function() {

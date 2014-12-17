@@ -12,6 +12,7 @@ var Cluster = require('./lib/cluster').Cluster;
  * @param {string}      [options.keyname]     ssh keyname; if not provided will create a new key 'coreos-cluster'
  * @param {string}      [options.privateNetwork]     optional private network guid to use for rackspace private network
  * @param {string}      [options.monitoringToken]    optional monitoring token to configure cloud monitoring
+ * @param {string}      [options.ephemeral]    optional utilize data disk (ephemeral) for Docker storage
  * @param {string}      [options.discoverServiceUrl] url for an existing cluster's discover service
  * @param {string}      [options.keyname]            ssh keyname; if not provided will create a new key 'coreos-cluster'
  * @param {object}      [options.update]             options for CoreOS updates
