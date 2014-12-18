@@ -1,0 +1,7 @@
+[Unit]
+Description=Formats the ephemeral drive
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/root/bin/format-ephemeral.sh
