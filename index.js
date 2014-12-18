@@ -4,6 +4,7 @@ var Cluster = require('./lib/cluster').Cluster;
  * Create a coreos cluster
  *
  * @param {object}      options               options for your new cluster
+ * @param {string}      [options.basename]    basename for the cluster, "cluster-" is default (e.g. cluster-1413933515-03)
  * @param {string}      [options.type]        'onMetal' or 'performance', performance is default
  * @param {string}      [options.flavor]      cloud servers flavor, defaults to smallest for type
  * @param {string}      [options.release]     coreos release, 'alpha', 'beta', 'stable', stable is default
