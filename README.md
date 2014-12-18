@@ -32,6 +32,10 @@ cluster.createCluster({
 - `privateNetwork` - Optional. Guid for a rackspace private network. Will configure etcd to use the private network.
 - `monitoringToken` - Optional. Will configure the nodes for Rackspace cloud monitoring.
 - `discoveryServiceUrl` - Optional. Url for an existing cluster's discovery service. Will add `numNodes` to current cluster instead of create a new cluster.
+- `update` - Optional. Update strategies.
+  - `group` - The update group, can be "master", "stable", "alpha", "beta", or a UUID for a custom CoreUpdate group.
+  - `server` - Server to get updates from, e.g. https://public.update.core-os.net or https://customer.update.core-os.net
+  - `rebootStrategy` - When to reboot after an update. E.g. [best-effort, etcd-lock, reboot, off](https://coreos.com/docs/cluster-management/setup/update-strategies/).
 - `credentials` - Required. The credentials for the create cluster call
   - `username` - Username for your rackspace account
   - `apiKey` - Api key for your rackspace account
@@ -52,7 +56,8 @@ cluster.createCluster({
   monitoringToken: 'your-monitoring-token',
   update: {
       group: '0a809ab1-c01c-4a6b-8ac8-6b17cb9bae09',
-      server: 'https://customer.update.core-os.net/v1/update/'
+      server: 'https://customer.update.core-os.net/v1/update/',
+      rebootStrategy: 'best-effort'
   },
   credentials: {
     username: 'your-user-name',

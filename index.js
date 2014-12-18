@@ -17,6 +17,7 @@ var Cluster = require('./lib/cluster').Cluster;
  * @param {object}      [options.update]             options for CoreOS updates
  * @param {string}      [options.update.group]       optional update group (e.g. stable, beta, UUID for a channel)
  * @param {string}      [options.update.server]      optional omaha endpoint URL for updates
+ * @param {string}      [options.update.rebootStrategy]      optional reboot strategy
  *
  * @param callback      callback with err, results
  */
